@@ -1,15 +1,12 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, Award, Users, Zap, Lightbulb, Trophy, Coffee, Instagram, Linkedin } from 'lucide-react'
-import Particles from "react-tsparticles"
-import type { Engine } from "tsparticles-engine"
-import { loadFull } from "tsparticles"
 
 function useIntersectionObserver(ref: React.RefObject<HTMLElement>, options: IntersectionObserverInit = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -51,39 +48,8 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
 export default function Component() {
   const [activeTab, setActiveTab] = useState('home')
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine)
-  }, [])
-
-  const particlesOptions = {
-    particles: {
-      number: { value: 80, density: { enable: true, value_area: 800 } },
-      color: { value: "#ffffff" },
-      shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
-      opacity: { value: 0.5, random: false },
-      size: { value: 3, random: true },
-      line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-      move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" },
-        resize: true
-      },
-    },
-    retina_detect: true
-  }
-
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particlesOptions}
-        className="absolute inset-0 z-0"
-      />
       <div className="relative z-10">
         <motion.header 
           initial={{ y: -100 }}
@@ -228,44 +194,11 @@ export default function Component() {
                 <AnimatedSection className="space-y-8 text-gray-300">
                   <h2 className="text-4xl font-bold text-white">About Useless Project</h2>
                   <p className="text-lg">
-                    Useless Project is an incredible opportunity to get your hands dirty & tinker with ideas alongside thousands of learners & makers. It's a safe & supportive space to explore new technologies without worrying about real-world relevance. This is the perfect nudge to start your maker journey without sweating it out.
+                    Useless Project is an incredible opportunity to get your hands dirty & tinker with ideas alongside thousands of learners & makers. It&apos;s a safe & supportive space to explore new technologies without worrying about real-world relevance. This is a great platform for beginners and experts alike to push the boundaries of their creativity and create something for the sake of learning.
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
-                    {[
-                      "Receive help from a 15,000+ strong peer support group throughout the event.",
-                      "Get monthly scholarships for top builders.",
-                      "Showcase projects to a community of 10,000+ makers.",
-                      "Get mentorship from industry experts.",
-                      "Win cash awards for outstanding projects!"
-                    ].map((item, index) => (
-                      <motion.li 
-                        key={index}
-                        whileHover={{ scale: 1.05, x: 10 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                  
-                  <h3 className="text-2xl font-bold text-white mt-8">Program Aims & Goals</h3>
-                  <ul className="list-disc list-inside space-y-4">
-                    {[
-                      "To encourage students to try & learn new technologies.",
-                      "To create a low-stakes environment where students can experiment freely & accept mistakes as valuable steps of the learning process.",
-                      "To foster innovative thinking by encouraging participants to conceptualize and create unconventional solutions without real-world constraints.",
-                      "To cultivate an entrepreneurial spirit & demonstrate that \"useless\" ideas too can lead to unexpected innovations and create impact.",
-                      "To encourage students from multiple disciplines to work together, promoting cross-pollination of ideas and teamwork."
-                    ].map((item, index) => (
-                      <motion.li 
-                        key={index}
-                        whileHover={{ scale: 1.05, x: 10 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
+                  <p className="text-lg">
+                    It doesn&apos;t matter if it&apos;s practical or even useful - what matters is the process, experimentation, and fun that comes with it. Projects could range from quirky to funny, serious to outrageous - what counts is the effort and the creative spark.
+                  </p>
                 </AnimatedSection>
               </motion.div>
             )}
@@ -277,55 +210,38 @@ export default function Component() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
+                className="text-center space-y-6"
               >
-                <AnimatedSection className="space-y-8">
-                  <h2 className="text-4xl font-bold text-white">Contact Us</h2>
-                  <motion.div 
-                    className="bg-gray-900 p-6 rounded-lg text-gray-300"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    <h3 className="text-2xl font-semibold mb-4 text-white">Enquiry Details</h3>
-                    <p className="mb-2"><strong>Name:</strong> CHRISS PHILIP SAJI</p>
-                    <p className="mb-2"><strong>Position:</strong> Tinkerhub Campus Lead</p>
-                    <p className="mb-2"><strong>Class:</strong> S7 - CSE</p>
-                    <p className="mb-2"><strong>Phone:</strong> 8826173157</p>
-                    <div className="mt-6">
-                      <h4 className="text-xl font-semibold mb-3 text-white">Follow Us</h4>
-                      <div className="flex space-x-4">
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                          <Link  href="https://www.instagram.com/_tinkerhub_mbccet_?igsh=MTFzN21obzc5NTVhcg%3D%3D" target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="icon" className="text-pink-500 hover:text-pink-600 hover:bg-pink-100">
-                              <Instagram className="h-5 w-5" />
-                              <span className="sr-only">Instagram</span>
-                            </Button>
-                          </Link>
-                        </motion.div>
-                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                          <Link href="https://www.linkedin.com/in/mbccet-tinkerhub-b79303327/" target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="icon" className="text-blue-500 hover:text-blue-600 hover:bg-blue-100">
-                              <Linkedin className="h-5 w-5" />
-                              <span className="sr-only">LinkedIn</span>
-                            </Button>
-                          </Link>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </motion.div>
+                <AnimatedSection>
+                  <h2 className="text-3xl font-bold text-white">Contact Us</h2>
+                  <p className="text-lg text-gray-300">For any queries or sponsorship opportunities, feel free to reach out to us!</p>
+                  <div className="flex justify-center space-x-4">
+                    <motion.a 
+                      whileHover={{ scale: 1.1 }} 
+                      whileTap={{ scale: 0.9 }} 
+                      href="https://instagram.com/tinkerhubmbcet" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-yellow-400"
+                    >
+                      <Instagram className="w-8 h-8" />
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.1 }} 
+                      whileTap={{ scale: 0.9 }} 
+                      href="https://linkedin.com/in/tinkerhubmbcet" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-yellow-400"
+                    >
+                      <Linkedin className="w-8 h-8" />
+                    </motion.a>
+                  </div>
                 </AnimatedSection>
               </motion.div>
             )}
           </AnimatePresence>
         </main>
-
-        <motion.footer 
-          className="container mx-auto p-4 text-center mt-16 text-gray-500 relative z-10"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <p>&copy; 2023 MBCCET-Tinkerhub. All rights reserved.</p>
-        </motion.footer>
       </div>
     </div>
   )

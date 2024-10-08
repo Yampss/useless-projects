@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Clock, Award, Users, Zap, Lightbulb, Trophy, Coffee, Instagram, Linkedin } from 'lucide-react'
-
+import image from "@/assets/TinkerHub_MBCCET Peermade.png"
 function useIntersectionObserver(ref: React.RefObject<HTMLElement>, options: IntersectionObserverInit = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false)
 
@@ -60,7 +60,7 @@ export default function Component() {
           <div className="container mx-auto p-4 flex justify-between items-center">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Image
-                src={require("@/assets/TinkerHub_MBCCET Peermade.png")}
+                src={image}
                 alt="Tinkerhub Logo"
                 width={100}
                 height={100}

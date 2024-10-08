@@ -51,7 +51,7 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <div className="relative z-10">
-        <motion.header 
+        <motion.header
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ type: "spring", stiffness: 100 }}
@@ -60,10 +60,10 @@ export default function Component() {
           <div className="container mx-auto p-4 flex justify-between items-center">
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Image
-                src="/#"
+                src={require("@/assets/TinkerHub_MBCCET Peermade.png")}
                 alt="Tinkerhub Logo"
-                width={50}
-                height={50}
+                width={100}
+                height={100}
                 className="rounded-full"
               />
             </motion.div>
@@ -75,9 +75,9 @@ export default function Component() {
                   whileTap={{ scale: 0.9 }}
                   className="inline-block"
                 >
-                  <Button 
-                    variant="ghost" 
-                    className={`text-white hover:text-yellow-400 ${activeTab === tab ? 'bg-gray-800' : ''}`} 
+                  <Button
+                    variant="ghost"
+                    className={`text-white hover:text-yellow-400 ${activeTab === tab ? 'bg-gray-800' : ''}`}
                     onClick={() => setActiveTab(tab)}
                   >
                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -113,7 +113,7 @@ export default function Component() {
                       className="max-w-full h-auto rounded-lg shadow-lg"
                     />
                   </motion.div>
-                  <motion.p 
+                  <motion.p
                     className="text-2xl mt-8 text-white text-center max-w-2xl"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -152,7 +152,7 @@ export default function Component() {
                       { icon: Trophy, text: "Monthly scholarships for top builders" },
                       { icon: Coffee, text: "Snacks will be provided to fuel your creativity!" }
                     ].map((item, index) => (
-                      <motion.li 
+                      <motion.li
                         key={index}
                         className="flex items-center"
                         whileHover={{ scale: 1.05, x: 10 }}
@@ -216,21 +216,21 @@ export default function Component() {
                   <h2 className="text-3xl font-bold text-white">Contact Us</h2>
                   <p className="text-lg text-gray-300">For any queries or sponsorship opportunities, feel free to reach out to us!</p>
                   <div className="flex justify-center space-x-4">
-                    <motion.a 
-                      whileHover={{ scale: 1.1 }} 
-                      whileTap={{ scale: 0.9 }} 
-                      href="https://instagram.com/tinkerhubmbcet" 
-                      target="_blank" 
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://instagram.com/tinkerhubmbcet"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-yellow-400"
                     >
                       <Instagram className="w-8 h-8" />
                     </motion.a>
-                    <motion.a 
-                      whileHover={{ scale: 1.1 }} 
-                      whileTap={{ scale: 0.9 }} 
-                      href="https://linkedin.com/in/tinkerhubmbcet" 
-                      target="_blank" 
+                    <motion.a
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://linkedin.com/in/tinkerhubmbcet"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-yellow-400"
                     >

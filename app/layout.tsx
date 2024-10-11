@@ -15,7 +15,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Useless Projects - Tinkerhub MBCCET",
-  description: "A first-of-a-kind, 18-hour make-a-thon for boundless creativity!",
+  description:
+    "A first-of-a-kind, 18-hour make-a-thon for boundless creativity!",
 };
 
 export default function RootLayout({
@@ -25,11 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

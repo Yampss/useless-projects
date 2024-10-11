@@ -1,12 +1,12 @@
-# Useless Projects Make-a-thon
+# Useless Projects  
 
 ## Overview
 
-Welcome to the **Useless Projects** Make-a-thon! This unique 18-hour event invites you to unleash your creativity and innovation. Build literally anything—your imagination is the only limit!
+Welcome to the **Useless Projects**  ! This unique 18-hour event invites you to unleash your creativity and innovation. Build literally anything—your imagination is the only limit!
 
 ## Event Details
 
-- **Event Name:** Useless Projects Make-a-thon
+- **Event Name:** Useless Projects  
 - **Date:** November 2, 2024, 2:00 PM to November 3, 2024, 8:00 AM
 - **Location:** MBCCET (Mahatma Gandhi College of Engineering and Technology)
 - **Registration:** Closes after the first 100 participants.
@@ -20,7 +20,7 @@ Welcome to the **Useless Projects** Make-a-thon! This unique 18-hour event invit
 
 ## How to Register
 
-Don't miss out! [Register now](#) to secure your spot in this exciting make-a-thon!
+Don't miss out! [Register now](#) to secure your spot in this exciting  !
 
 ---
 

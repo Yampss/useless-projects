@@ -262,13 +262,13 @@ export default function Component() {
 
                 <AnimatedSection className="space-y-8 mb-12">
                   <h2 className="text-4xl font-bold text-white text-center">
-                    Why Participate?
+                    Why Participate ?
                   </h2>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300 max-w-3xl mx-auto">
                     {[
                       {
                         icon: Zap,
-                        text: "Experiment and learn without real-world constraints",
+                        text: "Experiment and learn without real-world constraints ",
                       },
                       {
                         icon: Lightbulb,

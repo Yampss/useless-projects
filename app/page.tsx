@@ -12,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  Phone,
+  User,
   Menu,
   X,
   Clock,
@@ -303,7 +305,7 @@ export default function Component() {
                     Event Details
                   </h2>
                   <p className="text-2xl text-yellow-400">
-                    Dates: 2nd November 2pm to 3rd November 8am
+                    Date: 2nd November 2pm to 3rd November 8am
                   </p>
                 </AnimatedSection>
 
@@ -366,46 +368,67 @@ export default function Component() {
             )}
 
             {activeTab === "contact" && (
-              <motion.div
-                key="contact"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="text-center space-y-8"
-              >
-                <AnimatedSection>
-                  <h2 className="text-5xl font-bold text-white mb-6">
-                    Contact Us
-                  </h2>
-                  <p className="text-xl text-gray-300  mb-8">
-                    For any queries or sponsorship opportunities, feel free to
-                    reach out to us!
-                  </p>
-                  <div className="flex justify-center space-x-8">
-                    <motion.a
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      href="https://instagram.com/tinkerhubmbcet"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                    >
-                      <Instagram className="w-10 h-10" />
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      href="https://linkedin.com/in/tinkerhubmbcet"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                    >
-                      <Linkedin className="w-10 h-10" />
-                    </motion.a>
-                  </div>
-                </AnimatedSection>
-              </motion.div>
+               <motion.div
+               key="contact"
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               exit={{ opacity: 0, y: -20 }}
+               transition={{ duration: 0.5 }}
+               className="text-center space-y-12"
+             >
+               <AnimatedSection>
+                 <h2 className="text-5xl font-bold text-white mb-6">
+                   Contact Us
+                 </h2>
+                 <p className="text-xl text-gray-300 mb-8">
+                   For any queries or sponsorship opportunities, feel free to
+                   reach out to us!
+                 </p>
+                 <div className="flex justify-center space-x-8 mb-12">
+                   <motion.a
+                     whileHover={{ scale: 1.1, y: -5 }}
+                     whileTap={{ scale: 0.9 }}
+                     href="https://instagram.com/tinkerhubmbcet"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
+                   >
+                     <Instagram className="w-10 h-10" />
+                   </motion.a>
+                   <motion.a
+                     whileHover={{ scale: 1.1, y: -5 }}
+                     whileTap={{ scale: 0.9 }}
+                     href="https://linkedin.com/in/tinkerhubmbcet"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
+                   >
+                     <Linkedin className="w-10 h-10" />
+                   </motion.a>
+                 </div>
+               </AnimatedSection>
+         
+               <AnimatedSection>
+                 <Card className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white">
+                   <CardContent className="p-6">
+                     <h3 className="text-2xl font-bold mb-4">For more Information</h3>
+                     <div className="space-y-4">
+                       <div className="flex items-center">
+                         <User className="w-6 h-6 mr-3 text-yellow-400" />
+                         <span>Chriss Philip Saji</span>
+                       </div>
+                       <div className="flex items-center">
+                         <Phone className="w-6 h-6 mr-3 text-yellow-400" />
+                         <a href="tel:+918826173157" className="hover:text-yellow-400 transition-colors">
+                           +91 8826173157
+                         </a>
+                       </div>
+                       <p className="text-sm text-gray-400"> TinkerHub MBCCET Campus Lead</p>
+                     </div>
+                   </CardContent>
+                 </Card>
+               </AnimatedSection>
+             </motion.div>
             )}
           </AnimatePresence>
         </main>
@@ -413,7 +436,7 @@ export default function Component() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-black py-8 mt-16"
+          className="bg-gray-950 py-8 mt-16"
         >
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center text-center">

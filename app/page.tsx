@@ -305,7 +305,7 @@ export default function Component() {
                     Event Details
                   </h2>
                   <p className="text-2xl text-yellow-400">
-                    Date: 2nd November 2pm to 3rd November 8am
+                    Date: 2nd November 2:00 PM to 3rd November 8:00 AM
                   </p>
                 </AnimatedSection>
 

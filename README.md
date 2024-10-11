@@ -1,49 +1,27 @@
-# TinkerHub Make-a-thon README
+# Useless Projects Make-a-thon
 
 ## Overview
 
-Welcome to the TinkerHub Make-a-thon project! This repository contains all the necessary information and resources for participating in our first-of-a-kind, 18-hour make-a-thon event. Join us for a creative journey where your imagination is the only limit!
+Welcome to the **Useless Projects** Make-a-thon! This unique 18-hour event invites you to unleash your creativity and innovation. Build literally anything—your imagination is the only limit!
 
 ## Event Details
 
-- **Event Name:** TinkerHub Make-a-thon
+- **Event Name:** Useless Projects Make-a-thon
 - **Date:** November 2, 2024, 2:00 PM to November 3, 2024, 8:00 AM
-- **Location:** [TinkerHub](https://www.tinkerhub.org)
+- **Location:** MBCCET (Mahatma Gandhi College of Engineering and Technology)
 - **Registration:** Closes after the first 100 participants.
 
 ## Why Participate?
 
-- **Experiment and Learn:** Engage in hands-on projects without real-world constraints.
-- **Community Support:** Join a vibrant community of over 15,000 makers and learners.
-- **Recognition:** Showcase your projects to more than 10,000 attendees and win cash awards.
-- **Incentives:** Monthly scholarships for top builders and snacks provided to fuel your creativity!
+- **Experiment Freely:** Dive into hands-on projects without the constraints of real-world applications.
+- **Showcase Your Work:** Present your projects to over 10,000 fellow makers and stand a chance to win cash awards!
+- **Join a Thriving Community:** Connect with a vibrant network of over 15,000 learners and makers who share your passion.
+- **Incentives Await:** Monthly scholarships for top builders and delicious snacks will be provided to fuel your creativity!
 
-## Getting Started
+## How to Register
 
-1. **Register for the Event:** Ensure you are among the first 100 participants by registering on our website.
-2. **Prepare Your Ideas:** Think creatively about what you want to build—anything goes!
-3. **Join the Community:** Connect with fellow makers through our online platforms.
-
-## Project Structure
-
-This repository includes:
-
-- **Event Schedule:** Detailed timeline of activities during the make-a-thon.
-- **Resources:** Links to tutorials, tools, and materials that can help you during the event.
-- **Community Guidelines:** Best practices for collaboration and support.
-
-## Contribution
-
-We welcome contributions from all participants. If you have ideas or resources that could benefit others, please feel free to submit a pull request or open an issue.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
-## Contact
-
-For any inquiries or further information, please contact us at [contact@tinkerhub.org](mailto:contact@tinkerhub.org).
+Don't miss out! [Register now](#) to secure your spot in this exciting make-a-thon!
 
 ---
 
-Join us at TinkerHub and let’s create something amazing together!
+© 2024 TinkerHub MBCCET. All rights reserved.

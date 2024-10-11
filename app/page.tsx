@@ -1,36 +1,56 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Award, Users, Zap, Lightbulb, Trophy, Coffee, Instagram, Linkedin } from 'lucide-react'
-import image from "@/assets/TinkerHub_MBCCET Peermade.png"
-function useIntersectionObserver(ref: React.RefObject<HTMLElement>, options: IntersectionObserverInit = {}) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Menu,
+  Clock,
+  Award,
+  Users,
+  Zap,
+  Lightbulb,
+  Trophy,
+  Coffee,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
+import image from "@/assets/TinkerHub_MBCCET Peermade.png";
+function useIntersectionObserver(
+  ref: React.RefObject<HTMLElement>,
+  options: IntersectionObserverInit = {}
+) {
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting)
-    }, options)
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
     return () => {
-      observer.disconnect()
-    }
-  }, [ref, options])
+      observer.disconnect();
+    };
+  }, [ref, options]);
 
-  return isIntersecting
+  return isIntersecting;
 }
 
-function AnimatedSection({ children, className = '' }: { children: React.ReactNode, className?: string }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isVisible = useIntersectionObserver(ref, { threshold: 0.1 })
+function AnimatedSection({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
 
   return (
     <motion.div
@@ -42,11 +62,14 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 export default function Component() {
-  const [activeTab, setActiveTab] = useState('home')
+  const [activeTab, setActiveTab] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -67,8 +90,10 @@ export default function Component() {
                 className="rounded-full"
               />
             </motion.div>
-            <nav className="space-x-2">
-              {['home', 'about', 'contact'].map((tab) => (
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex space-x-2">
+              {["home", "about", "contact"].map((tab) => (
                 <motion.div
                   key={tab}
                   whileHover={{ scale: 1.1 }}
@@ -77,7 +102,9 @@ export default function Component() {
                 >
                   <Button
                     variant="ghost"
-                    className={`text-white hover:text-yellow-400 ${activeTab === tab ? 'bg-gray-800' : ''}`}
+                    className={`text-white hover:text-yellow-400 ${
+                      activeTab === tab ? "bg-gray-800" : ""
+                    }`}
                     onClick={() => setActiveTab(tab)}
                   >
                     {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -85,12 +112,52 @@ export default function Component() {
                 </motion.div>
               ))}
             </nav>
-          </div>
-        </motion.header>
 
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              className="md:hidden text-white"
+              onClick={toggleMenu}
+            >
+              <Menu size={24} />
+            </Button>
+          </div>
+
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden bg-black/90 p-4"
+            >
+              {["home", "about", "contact"].map((tab) => (
+                <motion.div
+                  key={tab}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="block mb-2"
+                >
+                  <Button
+                    variant="ghost"
+                    className={`w-full text-white hover:text-yellow-400 ${
+                      activeTab === tab ? "bg-gray-800" : ""
+                    }`}
+                    onClick={() => {
+                      setActiveTab(tab);
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </Button>
+                </motion.div>
+              ))}
+            </motion.nav>
+          )}
+        </motion.header>
         <main className="container mx-auto px-4 pt-24">
           <AnimatePresence mode="wait">
-            {activeTab === 'home' && (
+            {activeTab === "home" && (
               <motion.div
                 key="home"
                 initial={{ opacity: 0 }}
@@ -119,22 +186,44 @@ export default function Component() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                   >
-                    A first-of-a-kind, 18-hour make-a-thon for boundless creativity!
+                    A first-of-a-kind, 18-hour make-a-thon for boundless
+                    creativity!
                   </motion.p>
                 </div>
 
                 <AnimatedSection>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {[
-                      { icon: Clock, title: "18-Hour Challenge", description: "Build literally anything - imagination is your limit." },
-                      { icon: Award, title: "Get Recognized", description: "Showcase projects to 10,000+ makers and win cash awards!" },
-                      { icon: Users, title: "Peer Support", description: "Join a 15,000+ strong community of learners and makers." }
+                      {
+                        icon: Clock,
+                        title: "18-Hour Challenge",
+                        description:
+                          "Build literally anything - imagination is your limit.",
+                      },
+                      {
+                        icon: Award,
+                        title: "Get Recognized",
+                        description:
+                          "Showcase projects to 10,000+ makers and win cash awards!",
+                      },
+                      {
+                        icon: Users,
+                        title: "Peer Support",
+                        description:
+                          "Join a 15,000+ strong community of learners and makers.",
+                      },
                     ].map((item, index) => (
-                      <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <motion.div
+                        key={index}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
                         <Card className="bg-gray-900 border-gray-700 hover:bg-gray-800 transition-colors duration-300">
                           <CardContent className="p-6">
                             <item.icon className="w-12 h-12 mb-4 mx-auto text-yellow-400" />
-                            <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
+                            <h3 className="text-xl font-semibold mb-2 text-white">
+                              {item.title}
+                            </h3>
                             <p className="text-gray-300">{item.description}</p>
                           </CardContent>
                         </Card>
@@ -144,19 +233,37 @@ export default function Component() {
                 </AnimatedSection>
 
                 <AnimatedSection className="space-y-4 mb-12">
-                  <h2 className="text-3xl font-bold text-white text-center">Why Participate?</h2>
+                  <h2 className="text-3xl font-bold text-white text-center">
+                    Why Participate?
+                  </h2>
                   <ul className="list-none space-y-2 text-gray-300 max-w-md mx-auto">
                     {[
-                      { icon: Zap, text: "Experiment and learn without real-world constraints" },
-                      { icon: Lightbulb, text: "Perfect nudge to start your maker journey" },
-                      { icon: Trophy, text: "Monthly scholarships for top builders" },
-                      { icon: Coffee, text: "Snacks will be provided to fuel your creativity!" }
+                      {
+                        icon: Zap,
+                        text: "Experiment and learn without real-world constraints",
+                      },
+                      {
+                        icon: Lightbulb,
+                        text: "Perfect nudge to start your maker journey",
+                      },
+                      {
+                        icon: Trophy,
+                        text: "Monthly scholarships for top builders",
+                      },
+                      {
+                        icon: Coffee,
+                        text: "Snacks will be provided to fuel your creativity!",
+                      },
                     ].map((item, index) => (
                       <motion.li
                         key={index}
                         className="flex items-center"
                         whileHover={{ scale: 1.05, x: 10 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 10,
+                        }}
                       >
                         <item.icon className="w-6 h-6 mr-2 text-yellow-400 flex-shrink-0" />
                         <span>{item.text}</span>
@@ -166,24 +273,39 @@ export default function Component() {
                 </AnimatedSection>
 
                 <AnimatedSection className="mb-12 text-center">
-                  <h2 className="text-3xl font-bold mb-4 text-white">Event Details</h2>
-                  <p className="text-xl text-gray-300">Dates: 2nd November 2pm to 3rd November 8am</p>
+                  <h2 className="text-3xl font-bold mb-4 text-white">
+                    Event Details
+                  </h2>
+                  <p className="text-xl text-gray-300">
+                    Dates: 2nd November 2pm to 3rd November 8am
+                  </p>
                 </AnimatedSection>
 
                 <AnimatedSection className="text-center">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Link href="https://noteforms.com/forms/useless-project-interest-form-mbccet-tinkerhub-fevn8t" passHref>
-                      <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-full transition-transform hover:scale-105">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link
+                      href="https://noteforms.com/forms/useless-project-interest-form-mbccet-tinkerhub-fevn8t"
+                      passHref
+                    >
+                      <Button
+                        size="lg"
+                        className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-full transition-transform hover:scale-105"
+                      >
                         Register Now!
                       </Button>
                     </Link>
                   </motion.div>
-                  <p className="mt-4 text-sm text-gray-300">Hurry! Registration closes after the first 100 people.</p>
+                  <p className="mt-4 text-sm text-gray-300">
+                    Hurry! Registration closes after the first 100 people.
+                  </p>
                 </AnimatedSection>
               </motion.div>
             )}
 
-            {activeTab === 'about' && (
+            {activeTab === "about" && (
               <motion.div
                 key="about"
                 initial={{ opacity: 0 }}
@@ -192,18 +314,30 @@ export default function Component() {
                 transition={{ duration: 0.5 }}
               >
                 <AnimatedSection className="space-y-8 text-gray-300">
-                  <h2 className="text-4xl font-bold text-white">About Useless Project</h2>
+                  <h2 className="text-4xl font-bold text-white">
+                    About Useless Project
+                  </h2>
                   <p className="text-lg">
-                    Useless Project is an incredible opportunity to get your hands dirty & tinker with ideas alongside thousands of learners & makers. It&apos;s a safe & supportive space to explore new technologies without worrying about real-world relevance. This is a great platform for beginners and experts alike to push the boundaries of their creativity and create something for the sake of learning.
+                    Useless Project is an incredible opportunity to get your
+                    hands dirty & tinker with ideas alongside thousands of
+                    learners & makers. It&apos;s a safe & supportive space to
+                    explore new technologies without worrying about real-world
+                    relevance. This is a great platform for beginners and
+                    experts alike to push the boundaries of their creativity and
+                    create something for the sake of learning.
                   </p>
                   <p className="text-lg">
-                    It doesn&apos;t matter if it&apos;s practical or even useful - what matters is the process, experimentation, and fun that comes with it. Projects could range from quirky to funny, serious to outrageous - what counts is the effort and the creative spark.
+                    It doesn&apos;t matter if it&apos;s practical or even useful
+                    - what matters is the process, experimentation, and fun that
+                    comes with it. Projects could range from quirky to funny,
+                    serious to outrageous - what counts is the effort and the
+                    creative spark.
                   </p>
                 </AnimatedSection>
               </motion.div>
             )}
 
-            {activeTab === 'contact' && (
+            {activeTab === "contact" && (
               <motion.div
                 key="contact"
                 initial={{ opacity: 0 }}
@@ -214,7 +348,10 @@ export default function Component() {
               >
                 <AnimatedSection>
                   <h2 className="text-3xl font-bold text-white">Contact Us</h2>
-                  <p className="text-lg text-gray-300">For any queries or sponsorship opportunities, feel free to reach out to us!</p>
+                  <p className="text-lg text-gray-300">
+                    For any queries or sponsorship opportunities, feel free to
+                    reach out to us!
+                  </p>
                   <div className="flex justify-center space-x-4">
                     <motion.a
                       whileHover={{ scale: 1.1 }}
@@ -244,5 +381,5 @@ export default function Component() {
         </main>
       </div>
     </div>
-  )
+  );
 }

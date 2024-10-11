@@ -77,7 +77,7 @@ export default function Component() {
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#000", "#1F2937", "#111827"]
+    ["#000", "#0c111c", "#111827"]
   )
 
   return (
@@ -192,7 +192,7 @@ export default function Component() {
                       alt="Useless Projects"
                       width={600}
                       height={300}
-                      className="max-w-full h-auto rounded-lg shadow-2xl mix-blend-difference"
+                      className="max-w-full h-auto rounded-lg mix-blend-difference"
                     />
                     {/* <div
                       className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-purple-500/20 rounded-lg"

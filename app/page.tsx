@@ -1,11 +1,16 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+} from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Menu,
   X,
@@ -18,41 +23,41 @@ import {
   Coffee,
   Instagram,
   Linkedin,
-} from 'lucide-react'
-import image from "@/assets/TinkerHub_MBCCET Peermade.png"
-import Logo from "@/assets/logo.png"
+} from "lucide-react";
+import image from "@/assets/TinkerHub_MBCCET Peermade.png";
+import Logo from "@/assets/logo.png";
 function useIntersectionObserver(
   ref: React.RefObject<HTMLElement>,
   options: IntersectionObserverInit = {}
 ) {
-  const [isIntersecting, setIsIntersecting] = useState(false)
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setIsIntersecting(entry.isIntersecting)
-    }, options)
+      setIsIntersecting(entry.isIntersecting);
+    }, options);
 
     if (ref.current) {
-      observer.observe(ref.current)
+      observer.observe(ref.current);
     }
 
     return () => {
-      observer.disconnect()
-    }
-  }, [ref, options])
+      observer.disconnect();
+    };
+  }, [ref, options]);
 
-  return isIntersecting
+  return isIntersecting;
 }
 
 function AnimatedSection({
   children,
   className = "",
 }: {
-  children: React.ReactNode
-  className?: string
+  children: React.ReactNode;
+  className?: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const isVisible = useIntersectionObserver(ref, { threshold: 0.1 })
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(ref, { threshold: 0.1 });
 
   return (
     <motion.div
@@ -64,24 +69,25 @@ function AnimatedSection({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 export default function Component() {
-  const [activeTab, setActiveTab] = useState("home")
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const currentYear = new Date().getFullYear();
 
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     ["#000", "#0c111c", "#111827"]
-  )
+  );
 
   return (
-    <motion.div 
+    <motion.div
       className="min-h-screen text-white relative overflow-hidden"
       style={{ backgroundColor }}
     >
@@ -161,8 +167,8 @@ export default function Component() {
                         activeTab === tab ? "bg-gray-800" : ""
                       }`}
                       onClick={() => {
-                        setActiveTab(tab)
-                        setIsMenuOpen(false)
+                        setActiveTab(tab);
+                        setIsMenuOpen(false);
                       }}
                     >
                       {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -205,7 +211,9 @@ export default function Component() {
                     transition={{ delay: 0.2, duration: 0.5 }}
                   >
                     A first-of-a-kind, 18-hour make-a-thon for{" "}
-                    <span className="text-yellow-400">boundless creativity!</span>
+                    <span className="text-yellow-400">
+                      boundless creativity!
+                    </span>
                   </motion.p>
                 </div>
 
@@ -342,15 +350,15 @@ export default function Component() {
                       learners & makers. It&apos;s a safe & supportive space to
                       explore new technologies without worrying about real-world
                       relevance. This is a great platform for beginners and
-                      experts alike to push the boundaries of their creativity and
-                      create something for the sake of learning.
+                      experts alike to push the boundaries of their creativity
+                      and create something for the sake of learning.
                     </p>
                     <p className="text-xl leading-relaxed">
-                      It doesn&apos;t matter if it&apos;s practical or even useful
-                      - what matters is the process, experimentation, and fun that
-                      comes with it. Projects could range from quirky to funny,
-                      serious to outrageous - what counts is the effort and the
-                      creative spark.
+                      It doesn&apos;t matter if it&apos;s practical or even
+                      useful - what matters is the process, experimentation, and
+                      fun that comes with it. Projects could range from quirky
+                      to funny, serious to outrageous - what counts is the
+                      effort and the creative spark.
                     </p>
                   </div>
                 </AnimatedSection>
@@ -367,7 +375,9 @@ export default function Component() {
                 className="text-center space-y-8"
               >
                 <AnimatedSection>
-                  <h2  className="text-5xl font-bold text-white mb-6">Contact Us</h2>
+                  <h2 className="text-5xl font-bold text-white mb-6">
+                    Contact Us
+                  </h2>
                   <p className="text-xl text-gray-300  mb-8">
                     For any queries or sponsorship opportunities, feel free to
                     reach out to us!
@@ -399,7 +409,42 @@ export default function Component() {
             )}
           </AnimatePresence>
         </main>
+        <motion.footer
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="bg-black py-8 mt-16"
+        >
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col items-center justify-center text-center">
+              <motion.h2
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="text-2xl font-bold text-yellow-400 mb-4"
+              >
+                Useless Projects
+              </motion.h2>
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="mb-2"
+              >
+                Build literally anything - imagination is your limit.
+              </motion.p>
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="text-sm"
+              >
+                &copy; {currentYear} TinkerHub MBCCET. All rights reserved.
+              </motion.p>
+            </div>
+          </div>
+        </motion.footer>
       </div>
     </motion.div>
-  )
+  );
 }

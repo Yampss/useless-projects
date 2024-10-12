@@ -8,7 +8,7 @@ Welcome to the **Useless Projects**  ! This unique 18-hour event invites you to 
 
 - **Event Name:** Useless Projects  
 - **Date:** November 2, 2024, 2:00 PM to November 3, 2024, 8:00 AM
-- **Location:** MBCCET (Mahatma Gandhi College of Engineering and Technology)
+- **Location:** MBCCET , Peermade
 - **Registration:** Closes after the first 100 participants.
 
 ## Why Participate?
@@ -20,7 +20,7 @@ Welcome to the **Useless Projects**  ! This unique 18-hour event invites you to 
 
 ## How to Register
 
-Don't miss out! [Register now](#) to secure your spot in this exciting  !
+Don't miss out! [Register now](#) to secure your spot in this exciting event !
 
 ---
 

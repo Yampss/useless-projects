@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  Calendar,
   Phone,
   User,
   Menu,
@@ -331,12 +332,47 @@ export default function Component() {
                 </AnimatedSection>
 
                 <AnimatedSection className="mb-12 text-center bg-gray-800/50 backdrop-blur-sm p-8 rounded-lg">
-                  <h2 className="text-4xl font-bold mb-4 text-white">
+                  <motion.h2
+                    className="text-4xl font-bold mb-6 text-white text-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
                     Event Details
-                  </h2>
-                  <p className="text-2xl text-yellow-400">
-                    Date: 2nd November 2:00 PM to 3rd November 8:00 AM
-                  </p>
+                  </motion.h2>
+
+                  <motion.div
+                    className="flex items-center justify-center mb-4"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    <Calendar className="text-yellow-400 mr-2" size={24} />
+                    <p className="text-2xl text-yellow-400 font-semibold">
+                      2nd - 3rd November
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex items-center justify-center"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6, duration: 0.5 }}
+                  >
+                    <Clock className="text-yellow-400 mr-2" size={24} />
+                    <p className="text-2xl text-yellow-400 font-semibold">
+                      2:00 PM - 8:00 AM
+                    </p>
+                  </motion.div>
+
+                  <motion.p
+                    className="mt-6 text-lg text-white text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.5 }}
+                  >
+                    Join us for an exciting 18-hour make-a-thon!
+                  </motion.p>
                 </AnimatedSection>
 
                 <AnimatedSection className="text-center">

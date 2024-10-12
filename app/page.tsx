@@ -79,7 +79,7 @@ function AnimatedSection({
 }
 
 export default function Component() {
-  const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const socialLinks = [
     {
@@ -533,9 +533,8 @@ export default function Component() {
                 >
                   For any queries, feel free to reach out to us!
                 </motion.p>
-
                 <div className="flex justify-center space-x-8 mb-12">
-                  {socialLinks.map((link, index) => (
+                  {socialLinks.map((link) => (
                     <motion.a
                       key={link.name}
                       whileHover={{ scale: 1.1, y: -5 }}

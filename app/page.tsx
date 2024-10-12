@@ -207,15 +207,45 @@ export default function Component() {
                     ></div> */}
                   </div>
                   <motion.p
-                    className="text-3xl mt-8 text-white text-center max-w-2xl font-bold"
+                    className="text-xl text-white text-center max-w-2xl mb-4"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <motion.span
+                      className="inline-block"
+                      animate={{ rotate: [0, 5, 0, -5, 0] }}
+                      transition={{ repeat: Infinity, duration: 2 }}
+                    >
+                      ✨
+                    </motion.span>{" "}
+                    Tinkerhub MBCCET along with IEDC MBCCET organises{" "}
+                    <motion.span
+                      className="inline-block"
+                      animate={{ rotate: [0, -5, 0, 5, 0] }}
+                      transition={{ repeat: Infinity, duration: 2 }}
+                    >
+                      ✨
+                    </motion.span>
+                  </motion.p>
+
+                  <motion.p
+                    className="text-3xl text-white text-center max-w-2xl font-bold"
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                   >
                     A first-of-a-kind, 18-hour make-a-thon for{" "}
-                    <span className="text-yellow-400">
+                    <motion.span
+                      className="text-yellow-400 inline-block"
+                      animate={{
+                        scale: [1, 1.1, 1],
+                        rotate: [0, 5, 0, -5, 0],
+                      }}
+                      transition={{ repeat: Infinity, duration: 3 }}
+                    >
                       boundless creativity!
-                    </span>
+                    </motion.span>
                   </motion.p>
                 </div>
 
@@ -368,67 +398,75 @@ export default function Component() {
             )}
 
             {activeTab === "contact" && (
-               <motion.div
-               key="contact"
-               initial={{ opacity: 0, y: 20 }}
-               animate={{ opacity: 1, y: 0 }}
-               exit={{ opacity: 0, y: -20 }}
-               transition={{ duration: 0.5 }}
-               className="text-center space-y-12"
-             >
-               <AnimatedSection>
-                 <h2 className="text-5xl font-bold text-white mb-6">
-                   Contact Us
-                 </h2>
-                 <p className="text-xl text-gray-300 mb-8">
-                   For any queries or sponsorship opportunities, feel free to
-                   reach out to us!
-                 </p>
-                 <div className="flex justify-center space-x-8 mb-12">
-                   <motion.a
-                     whileHover={{ scale: 1.1, y: -5 }}
-                     whileTap={{ scale: 0.9 }}
-                     href="https://instagram.com/tinkerhubmbcet"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                   >
-                     <Instagram className="w-10 h-10" />
-                   </motion.a>
-                   <motion.a
-                     whileHover={{ scale: 1.1, y: -5 }}
-                     whileTap={{ scale: 0.9 }}
-                     href="https://linkedin.com/in/tinkerhubmbcet"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                   >
-                     <Linkedin className="w-10 h-10" />
-                   </motion.a>
-                 </div>
-               </AnimatedSection>
-         
-               <AnimatedSection>
-                 <Card className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white">
-                   <CardContent className="p-6">
-                     <h3 className="text-2xl font-bold mb-4">For more Information</h3>
-                     <div className="space-y-4">
-                       <div className="flex items-center">
-                         <User className="w-6 h-6 mr-3 text-yellow-400" />
-                         <span>Chriss Philip Saji</span>
-                       </div>
-                       <div className="flex items-center">
-                         <Phone className="w-6 h-6 mr-3 text-yellow-400" />
-                         <a href="tel:+918826173157" className="hover:text-yellow-400 transition-colors">
-                           +91 8826173157
-                         </a>
-                       </div>
-                       <p className="text-sm text-gray-400"> TinkerHub MBCCET Campus Lead</p>
-                     </div>
-                   </CardContent>
-                 </Card>
-               </AnimatedSection>
-             </motion.div>
+              <motion.div
+                key="contact"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="text-center space-y-12"
+              >
+                <AnimatedSection>
+                  <h2 className="text-5xl font-bold text-white mb-6">
+                    Contact Us
+                  </h2>
+                  <p className="text-xl text-gray-300 mb-8">
+                    For any queries or sponsorship opportunities, feel free to
+                    reach out to us!
+                  </p>
+                  <div className="flex justify-center space-x-8 mb-12">
+                    <motion.a
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://instagram.com/tinkerhubmbcet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
+                    >
+                      <Instagram className="w-10 h-10" />
+                    </motion.a>
+                    <motion.a
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://linkedin.com/in/tinkerhubmbcet"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
+                    >
+                      <Linkedin className="w-10 h-10" />
+                    </motion.a>
+                  </div>
+                </AnimatedSection>
+
+                <AnimatedSection>
+                  <Card className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white">
+                    <CardContent className="p-6">
+                      <h3 className="text-2xl font-bold mb-4">
+                        For more Information
+                      </h3>
+                      <div className="space-y-4">
+                        <div className="flex items-center">
+                          <User className="w-6 h-6 mr-3 text-yellow-400" />
+                          <span>Chriss Philip Saji</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Phone className="w-6 h-6 mr-3 text-yellow-400" />
+                          <a
+                            href="tel:+918826173157"
+                            className="hover:text-yellow-400 transition-colors"
+                          >
+                            +91 8826173157
+                          </a>
+                        </div>
+                        <p className="text-sm text-gray-400">
+                          {" "}
+                          TinkerHub MBCCET Campus Lead
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </AnimatedSection>
+              </motion.div>
             )}
           </AnimatePresence>
         </main>

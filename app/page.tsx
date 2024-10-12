@@ -11,7 +11,10 @@ import {
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
+  ExternalLink,
+  Mail,
   Calendar,
   Phone,
   User,
@@ -76,9 +79,26 @@ function AnimatedSection({
 }
 
 export default function Component() {
+  const [hoveredIcon, setHoveredIcon] = useState(null);
+
+  const socialLinks = [
+    {
+      name: "Instagram",
+      icon: Instagram,
+      url: "https://instagram.com/tinkerhubmbcet",
+      color: "bg-gradient-to-br from-purple-600 to-pink-500",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://linkedin.com/in/tinkerhubmbcet",
+      color: "bg-blue-600",
+    },
+  ];
+
   const [activeTab, setActiveTab] = useState("home");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isHovered, setIsHovered] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const currentYear = new Date().getFullYear();
 
@@ -376,25 +396,80 @@ export default function Component() {
                 </AnimatedSection>
 
                 <AnimatedSection className="text-center">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Link
-                      href="https://noteforms.com/forms/useless-project-interest-form-mbccet-tinkerhub-fevn8t"
-                      passHref
+                  <div className="flex flex-col items-center justify-center space-y-6">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onHoverStart={() => setIsHovered(true)}
+                      onHoverEnd={() => setIsHovered(false)}
                     >
-                      <Button
-                        size="lg"
-                        className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/50"
+                      <Link
+                        href="https://noteforms.com/forms/useless-project-interest-form-mbccet-tinkerhub-fevn8t"
+                        passHref
                       >
-                        Register Now!
-                      </Button>
-                    </Link>
-                  </motion.div>
-                  <p className="mt-4 text-lg text-gray-300">
-                    Hurry! Registration closes after the first 100 people.
-                  </p>
+                        <Button
+                          size="lg"
+                          className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/50 relative overflow-hidden"
+                        >
+                          <motion.span
+                            className="absolute inset-0 bg-white"
+                            initial={{ x: "-100%", opacity: 0.5 }}
+                            animate={{
+                              x: isHovered ? "100%" : "-100%",
+                              opacity: 0.5,
+                            }}
+                            transition={{ duration: 0.5 }}
+                          />
+                          <Zap className="mr-2" />
+                          Register Now!
+                        </Button>
+                      </Link>
+                    </motion.div>
+
+                    <AnimatePresence>
+                      {isHovered && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          <Alert
+                            variant="default"
+                            className="bg-yellow-500/10 border-yellow-500/50 text-yellow-500"
+                          >
+                            <Users className="h-4 w-4" />
+                            <AlertTitle>Limited Spots Available!</AlertTitle>
+                            <AlertDescription>
+                              Only 100 registrations accepted. Act fast!
+                            </AlertDescription>
+                          </Alert>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
+                    <motion.p
+                      className="text-lg text-gray-300 text-center max-w-md"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.5 }}
+                    >
+                      <motion.span
+                        className="inline-block"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          rotate: [0, 5, 0, -5, 0],
+                        }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                      >
+                        🚀
+                      </motion.span>{" "}
+                      Don&apos;t miss out on this exciting opportunity to
+                      showcase your creativity!
+                      <br />
+                      *Registration closes at 100 Participants
+                    </motion.p>
+                  </div>
                 </AnimatedSection>
               </motion.div>
             )}
@@ -435,73 +510,122 @@ export default function Component() {
 
             {activeTab === "contact" && (
               <motion.div
-                key="contact"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="text-center space-y-12"
+                className="text-center space-y-12 p-8 bg-gray-900 rounded-lg shadow-2xl"
               >
-                <AnimatedSection>
-                  <h2 className="text-5xl font-bold text-white mb-6">
-                    Contact Us
-                  </h2>
-                  <p className="text-xl text-gray-300 mb-8">
-                    For any queries or sponsorship opportunities, feel free to
-                    reach out to us!
-                  </p>
-                  <div className="flex justify-center space-x-8 mb-12">
-                    <motion.a
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      href="https://instagram.com/tinkerhubmbcet"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                    >
-                      <Instagram className="w-10 h-10" />
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.9 }}
-                      href="https://linkedin.com/in/tinkerhubmbcet"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-yellow-400 bg-gray-800/50 p-4 rounded-full hover:bg-gray-700/50 transition-all duration-300"
-                    >
-                      <Linkedin className="w-10 h-10" />
-                    </motion.a>
-                  </div>
-                </AnimatedSection>
+                <motion.h2
+                  className="text-5xl font-bold text-white mb-6"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  Contact Us
+                </motion.h2>
 
-                <AnimatedSection>
-                  <Card className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white">
-                    <CardContent className="p-6">
-                      <h3 className="text-2xl font-bold mb-4">
-                        For more Information
-                      </h3>
-                      <div className="space-y-4">
-                        <div className="flex items-center">
-                          <User className="w-6 h-6 mr-3 text-yellow-400" />
-                          <span>Chriss Philip Saji</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Phone className="w-6 h-6 mr-3 text-yellow-400" />
-                          <a
-                            href="tel:+918826173157"
-                            className="hover:text-yellow-400 transition-colors"
-                          >
-                            +91 8826173157
-                          </a>
-                        </div>
-                        <p className="text-sm text-gray-400">
-                          {" "}
-                          TinkerHub MBCCET Campus Lead
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </AnimatedSection>
+                <motion.p
+                  className="text-xl text-gray-300 mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                  For any queries, feel free to reach out to us!
+                </motion.p>
+
+                <div className="flex justify-center space-x-8 mb-12">
+                  {socialLinks.map((link, index) => (
+                    <motion.a
+                      key={link.name}
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                      onHoverStart={() => setHoveredIcon(link.name)}
+                      onHoverEnd={() => setHoveredIcon(null)}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`p-4 rounded-full transition-all duration-300 ${link.color}`}
+                    >
+                      <link.icon className="w-10 h-10 text-white" />
+                    </motion.a>
+                  ))}
+                </div>
+
+                <AnimatePresence>
+                  {hoveredIcon && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="text-yellow-400 font-semibold"
+                    >
+                      Visit our {hoveredIcon} page
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+
+                <Card className="max-w-md mx-auto bg-gray-800/50 backdrop-blur-sm border-gray-700 text-white overflow-hidden">
+                  <CardContent className="p-6">
+                    <motion.h3
+                      className="text-2xl font-bold mb-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.6, duration: 0.5 }}
+                    >
+                      For more Information
+                    </motion.h3>
+                    <div className="space-y-4">
+                      <motion.div
+                        className="flex items-center"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.8, duration: 0.5 }}
+                      >
+                        <User className="w-6 h-6 mr-3 text-yellow-400" />
+                        <span>Chriss Philip Saji</span>
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1, duration: 0.5 }}
+                      >
+                        <Phone className="w-6 h-6 mr-3 text-yellow-400" />
+                        <a
+                          href="tel:+918826173157"
+                          className="hover:text-yellow-400 transition-colors flex items-center"
+                        >
+                          +91 8826173157
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </a>
+                      </motion.div>
+                      <motion.div
+                        className="flex items-center"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1.2, duration: 0.5 }}
+                      >
+                        <Mail className="w-6 h-6 mr-3 text-yellow-400" />
+                        <a
+                          href="chrissattasseril16@gmail.com"
+                          className="hover:text-yellow-400 transition-colors flex items-center"
+                        >
+                          chrissattasseril16@gmail.com
+                          <ExternalLink className="w-4 h-4 ml-2" />
+                        </a>
+                      </motion.div>
+                      <motion.p
+                        className="text-sm text-gray-400 mt-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.4, duration: 0.5 }}
+                      >
+                        TinkerHub MBCCET Campus Lead
+                      </motion.p>
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             )}
           </AnimatePresence>

@@ -420,9 +420,15 @@ export default function Component() {
                           Event Sponsor
                         </p>
                         <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg mb-4">
-                          <p className="text-3xl font-extrabold text-gray-800">
-                            IEDC
-                          </p>
+                          <Link
+                            href="hhttps://iedc.startupmission.in/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <p className="text-3xl font-extrabold text-gray-800">
+                              IEDC
+                            </p>
+                          </Link>
                         </div>
                         <p className="text-xl text-white font-semibold text-center">
                           Innovation and Entrepreneurship Development Centre -
@@ -435,13 +441,19 @@ export default function Component() {
                           Community Partner
                         </p>
                         <div className="bg-white p-6 rounded-lg shadow-lg mb-4">
-                          <Image
-                            src={WexronLogo}
-                            alt="Wexron Web Hosting Servies"
-                            width={220}
-                            height={80}
-                            objectFit="contain"
-                          />
+                          <Link
+                            href="https://wexronhosting.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Image
+                              src={WexronLogo}
+                              alt="Wexron Web Hosting Servies"
+                              width={220}
+                              height={80}
+                              objectFit="contain"
+                            />
+                          </Link>
                         </div>
                         <p className="text-xl text-white font-semibold">
                           Wexron Web Hosting Services{" "}

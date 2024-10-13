@@ -430,7 +430,7 @@ export default function Component() {
                         </p>
                         <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg mb-4">
                           <Link
-                            href="hhttps://iedc.startupmission.in/"
+                            href="https://iedc.startupmission.in/"
                             target="_blank"
                             rel="noopener noreferrer"
                           >

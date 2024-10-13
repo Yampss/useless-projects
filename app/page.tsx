@@ -418,7 +418,7 @@ export default function Component() {
                       <div
                         onClick={() =>
                           window.open(
-                            "hhttps://iedc.startupmission.in/",
+                            "https://iedc.startupmission.in/",
                             "_blank",
                             "noopener,noreferrer"
                           )

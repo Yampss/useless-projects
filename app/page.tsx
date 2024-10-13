@@ -473,10 +473,10 @@ export default function Component() {
                             />
                           </Link>
                         </div>
-                        <p className="text-xl text-white font-semibold">
+                        <p className="text-xl text-white font-semibold text-center">
                           Wexron Web Hosting Services{" "}
                         </p>
-                        <p>
+                        <p className="text-center">
                           {" "}
                           <a href="https://wexronhosting.com">
                             {" "}

@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import image from "@/assets/TinkerHub_MBCCET Peermade.png";
 import Logo from "@/assets/logo.png";
+import WexronLogo from "@/assets/wexron.jpg";
 function useIntersectionObserver(
   ref: React.RefObject<HTMLElement>,
   options: IntersectionObserverInit = {}
@@ -351,49 +352,111 @@ export default function Component() {
                   </ul>
                 </AnimatedSection>
 
-                <AnimatedSection className="mb-12 text-center bg-gray-800/50 backdrop-blur-sm p-8 rounded-lg">
-                  <motion.h2
-                    className="text-4xl font-bold mb-6 text-white text-center"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.5 }}
-                  >
-                    Event Details
-                  </motion.h2>
+                <motion.section
+                  className="mb-12 p-8 rounded-2xl overflow-hidden relative bg-gray-800/50 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="relative z-10">
+                    <motion.h2
+                      className="text-5xl font-extrabold mb-8 text-white text-center tracking-tight"
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                    >
+                      Event Details
+                    </motion.h2>
 
-                  <motion.div
-                    className="flex items-center justify-center mb-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
-                  >
-                    <Calendar className="text-yellow-400 mr-2" size={24} />
-                    <p className="text-2xl text-yellow-400 font-semibold">
-                      2nd - 3rd November
-                    </p>
-                  </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                      <motion.div
+                        className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 hover:bg-opacity-20"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Calendar className="text-yellow-400 mb-4" size={36} />
+                        <p className="text-2xl text-yellow-400 font-bold">
+                          2nd - 3rd November
+                        </p>
+                      </motion.div>
 
-                  <motion.div
-                    className="flex items-center justify-center"
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
-                  >
-                    <Clock className="text-yellow-400 mr-2" size={24} />
-                    <p className="text-2xl text-yellow-400 font-semibold">
-                      2:00 PM - 8:00 AM
-                    </p>
-                  </motion.div>
+                      <motion.div
+                        className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 hover:bg-opacity-20"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Clock className="text-yellow-400 mb-4" size={36} />
+                        <p className="text-2xl text-yellow-400 font-bold">
+                          2:00 PM - 8:00 AM
+                        </p>
+                      </motion.div>
 
-                  <motion.p
-                    className="mt-6 text-lg text-white text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8, duration: 0.5 }}
-                  >
-                    Join us for an exciting 18-hour make-a-thon!
-                  </motion.p>
-                </AnimatedSection>
+                      <motion.div
+                        className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center justify-center transition-all duration-300 hover:bg-opacity-20 md:col-span-2 lg:col-span-1"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.5 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <Zap className="text-yellow-400 mb-4" size={36} />
+                        <p className="text-2xl text-yellow-400 font-bold text-center">
+                          18-hour Make-a-thon
+                        </p>
+                      </motion.div>
+                    </div>
+
+                    <motion.div
+                      className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8, duration: 0.5 }}
+                    >
+                      <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20">
+                        <p className="text-lg text-yellow-400 mb-4 font-semibold">
+                          Event Sponsor
+                        </p>
+                        <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg mb-4">
+                          <p className="text-3xl font-extrabold text-gray-800">
+                            IEDC
+                          </p>
+                        </div>
+                        <p className="text-xl text-white font-semibold text-center">
+                          Innovation and Entrepreneurship Development Centre -
+                          MBCCET
+                        </p>
+                      </div>
+
+                      <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20">
+                        <p className="text-lg text-yellow-400 mb-4 font-semibold">
+                          Community Partner
+                        </p>
+                        <div className="bg-white p-6 rounded-lg shadow-lg mb-4">
+                          <Image
+                            src={WexronLogo}
+                            alt="Wexron Web Hosting Servies"
+                            width={220}
+                            height={80}
+                            objectFit="contain"
+                          />
+                        </div>
+                        <p className="text-xl text-white font-semibold">
+                          Wexron Web Hosting Services{" "}
+                        </p>
+                        <p>
+                          {" "}
+                          <a href="https://wexronhosting.com">
+                            {" "}
+                            www.wexronhosting.com
+                          </a>
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.section>
 
                 <AnimatedSection className="text-center">
                   <div className="flex flex-col items-center justify-center space-y-6">

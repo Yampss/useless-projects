@@ -415,7 +415,16 @@ export default function Component() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8, duration: 0.5 }}
                     >
-                      <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20">
+                      <div
+                        onClick={() =>
+                          window.open(
+                            "hhttps://iedc.startupmission.in/",
+                            "_blank",
+                            "noopener,noreferrer"
+                          )
+                        }
+                        className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20"
+                      >
                         <p className="text-lg text-yellow-400 mb-4 font-semibold">
                           Event Sponsor
                         </p>
@@ -436,7 +445,16 @@ export default function Component() {
                         </p>
                       </div>
 
-                      <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20">
+                      <div
+                        onClick={() =>
+                          window.open(
+                            "https://wexronhosting.com/",
+                            "_blank",
+                            "noopener,noreferrer"
+                          )
+                        }
+                        className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-6 flex flex-col items-center transition-all duration-300 hover:bg-opacity-20"
+                      >
                         <p className="text-lg text-yellow-400 mb-4 font-semibold">
                           Community Partner
                         </p>
